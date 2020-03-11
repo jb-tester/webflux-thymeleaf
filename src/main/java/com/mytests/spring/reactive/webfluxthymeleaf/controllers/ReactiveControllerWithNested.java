@@ -91,6 +91,18 @@ public class ReactiveControllerWithNested {
                         ));
     }
 
+    @Bean
+    public RouterFunction<ServerResponse> routeSimpleNestedWithVars(){
+        final RequestPredicate predicate1 = GET("/foo");
+        final RequestPredicate predicate2 = GET("/bar");
+        return RouterFunctions.nest(path("/simple_nested_with_vars"),
+                route(predicate1,
+                        req -> ok().body(fromValue("foo")))
+                        .andRoute(predicate2,
+                                req -> ok().body(fromValue("bar")))
+        );
+
+    }
 
 }
 
