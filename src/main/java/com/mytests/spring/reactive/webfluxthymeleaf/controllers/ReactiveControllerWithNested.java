@@ -35,20 +35,20 @@ public class ReactiveControllerWithNested {
     public RouterFunction<ServerResponse> routeComplexNestedInlinePredicates() {
 
 
-        return nest(path("/inline"),
-                nest(path("/inline_nested_level1"),
-                        route(GET("/aaa"),
-                                req -> ok().body(fromValue("aaa"))))
-                        .andNest(path("/inline_nested_level2"),
-                                nest(path("/inline_nested_level21"),
-                                        route(GET("/bbb"),
-                                                req -> ok().body(fromValue("bbb")))
-                                                .andRoute(GET("/ccc"), req -> ok().body(fromValue("ccc"))))
-                                        .andNest(path("/inline_nested_level22"),
+        return nest(path("/multi"),
+                nest(path("/multi_nested_level1"),
+                        route(GET("/aaa"), req -> ok().body(fromValue("aaa")))
+                                   .andRoute(GET("/zzz"), req -> ok().body(fromValue("zzz"))))
+                           .andNest(path("/multi_nested_level2"),
+                                 nest(path("/multi_nested_level21"),
+                                        route(GET("/bbb"), req -> ok().body(fromValue("bbb")))
+                                                   .andRoute(GET("/ccc"), req -> ok().body(fromValue("ccc"))))
+                                            .andNest(path("/multi_nested_level22"),
                                                 route(GET("/ddd"), req -> ok().body(fromValue("ddd")))
+                                                           .andRoute(GET("/eee"), req -> ok().body(fromValue("eee")))
 
                                         ))
-                        .andRoute(GET("/top"), req -> ok().render("nested_view"))
+                           .andRoute(GET("/top"), req -> ok().render("nested_view"))
         );
     }
 
