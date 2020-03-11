@@ -2,22 +2,22 @@
 GET http://localhost:8080/simple_nested/aaa
 
 ### multiple nesting level
-GET http://localhost:8080/inline/nested_level2/nested_level22/ddd
+GET http://localhost:8080/inline/inline_nested_level2/inline_nested_level22/ddd
 
 ###
-GET http://localhost:8080/inline/nested_level2/nested_level21/ccc
+GET http://localhost:8080/inline/inline_nested_level2/inline_nested_level21/ccc
 
 ###
-GET http://localhost:8080/inline/nested_level1/aaa
+GET http://localhost:8080/inline/inline_nested_level1/aaa
 
 ###   OR predicates:
-GET http://localhost:8080/inline/alt/nested_level2/nested_level22/ddd2
+GET http://localhost:8080/inline/alt/altinline_nested_level2/altinline_nested_level22/ddd2
 
 ###
-GET http://localhost:8080/inline/alt/nested_level2/nested_level21/ccc1
+GET http://localhost:8080/inline/alt/altinline_nested_level2/altinline_nested_level21/ccc1
 
 ###
-GET http://localhost:8080/inline/alt/nested_level1/aaa2
+GET http://localhost:8080/inline/alt/altinline_nested_level1/aaa2
 
 ### With predicates as local variables
 
@@ -25,10 +25,10 @@ GET http://localhost:8080/with_vars/bbb
 
 ###
 
-GET http://localhost:8080/with_vars/nested_level1/ccc
+GET http://localhost:8080/with_vars/complexnested_nested_level1/ccc
 
 ###
-GET http://localhost:8080/with_vars/nested_level1/fff
+GET http://localhost:8080/with_vars/complexnested_nested_level1/fff
 
 ###
-GET http://localhost:8080/with_vars/nested_level1/nested_level2/ggg
+GET http://localhost:8080/with_vars/complexnested_nested_level1/complexnested_nested_level2/ggg

@@ -36,15 +36,15 @@ public class ReactiveControllerWithNested {
 
 
         return nest(path("/inline"),
-                nest(path("/nested_level1"),
+                nest(path("/inline_nested_level1"),
                         route(GET("/aaa"),
                                 req -> ok().body(fromValue("aaa"))))
-                        .andNest(path("/nested_level2"),
-                                nest(path("/nested_level21"),
+                        .andNest(path("/inline_nested_level2"),
+                                nest(path("/inline_nested_level21"),
                                         route(GET("/bbb"),
                                                 req -> ok().body(fromValue("bbb")))
                                                 .andRoute(GET("/ccc"), req -> ok().body(fromValue("ccc"))))
-                                        .andNest(path("/nested_level22"),
+                                        .andNest(path("/inline_nested_level22"),
                                                 route(GET("/ddd"), req -> ok().body(fromValue("ddd")))
 
                                         ))
@@ -57,16 +57,16 @@ public class ReactiveControllerWithNested {
 
 
         return nest(path("/inline/alt/"),
-                nest(path("/nested_level1"),
+                nest(path("/altinline_nested_level1"),
                         route(GET("/aaa1").or(GET("/aaa2")),
                                 req -> ok().render("nested_view")))
-                        .andNest(path("/nested_level2"),
-                                nest(path("/nested_level21"),
+                        .andNest(path("/altinline_nested_level2"),
+                                nest(path("/altinline_nested_level21"),
                                         route(GET("/bbb1").or(GET("/bbb2")),
                                                 req -> ok().body(fromValue("bbb")))
                                                 .andRoute(GET("/ccc1").or(GET("/ccc2")),
                                                         req -> ok().body(fromValue("ccc"))))
-                                        .andNest(path("/nested_level22"),
+                                        .andNest(path("/altinline_nested_level22"),
                                                 route(GET("/ddd1").or(GET("/ddd2")), req -> ok().body(fromValue("ddd")))
 
                                         )));
@@ -82,10 +82,10 @@ public class ReactiveControllerWithNested {
         return  nest(  path("/with_vars"),
                 route(predicate1,
                         req -> ok().render("nested_view"))
-                        .andNest(path("/nested_level1"),
+                        .andNest(path("/complexnested_nested_level1"),
                                 route(predicate2, req -> ok().render("nested_view") )
                                         .andRoute(predicate3, req -> ok().render("nested_view") )
-                                        .andNest(path("/nested_level2"),
+                                        .andNest(path("/complexnested_nested_level2"),
                                                 route(predicate4, req -> ok().render("nested_view")))
 
                         ));
