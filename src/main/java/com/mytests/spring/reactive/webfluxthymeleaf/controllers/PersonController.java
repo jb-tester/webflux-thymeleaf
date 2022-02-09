@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.reactive.result.view.Rendering;
 
+import java.util.Random;
+
 /**
  * *******************************
  * Created by irina on 2/14/2020.
@@ -32,6 +34,7 @@ public class PersonController {
     @RequestMapping("/next")
     public String next(Model model) {
         model.addAttribute("next_attr1", "something");
+        model.addAttribute("random", new Random().nextInt());
         return "next";
     } 
     

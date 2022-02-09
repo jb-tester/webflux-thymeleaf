@@ -11,5 +11,21 @@
        <p th:text="${person.address}"></p>
    </div>
    <a href="next">next</a>
+    <br/>
+   <a th:href="@{/ok2}">ok2</a>
+    <br/>
+   <a th:href="@{/ok/test_bar}">ok/testbar</a>
+    <br/>
+   <a th:href="@{/ok/test_foo}">ok/testfoo</a>
+    <br/>
+   <a th:href="@{/test_03}">test03</a>
+    <br/>
+
+   <a th:href="@{/test_00/myvarr?my_param0=222}">test00-pathvar-param</a>
+    <br/>
+   <a th:href="@{/test_02?my_param2=333}">test02-param</a>
+    <br/>
+   <a th:href="@{/test_01/myvarr0}">test01-pathvar</a>
+<br/>
 </body>
 </html>

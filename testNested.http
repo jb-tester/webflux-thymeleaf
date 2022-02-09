@@ -30,10 +30,16 @@ GET http://localhost:8080/inline/alt/altinline_nested_level1/aaa2
 
 ### With predicates as local variables
 
+###
+GET http://localhost:8080/simple_nested_with_vars/foo
+
+###
+GET http://localhost:8080/simple_nested_with_vars/bar
+
+###
 GET http://localhost:8080/with_vars/bbb
 
 ###
-
 GET http://localhost:8080/with_vars/complexnested_nested_level1/ccc
 
 ###

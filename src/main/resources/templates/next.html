@@ -6,6 +6,19 @@
 </head>
 <body>
     <p th:text="${next_attr1}"></p>
-   
+    <p th:text="${random}"></p>
+    <p style ="color: blue;" th:style = "${random > 10000} ? 'color: cyan' : 'color: orange' ">
+        Some Text 1
+    </p>
+
+
+    <p th:style ="${random<0} ? 'color: red' : 'color: pink' ">
+        Some Text 2
+    </p>
+
+
+    <p th:style ="'color: green'">
+        Some Text 3
+    </p>
 </body>
 </html>

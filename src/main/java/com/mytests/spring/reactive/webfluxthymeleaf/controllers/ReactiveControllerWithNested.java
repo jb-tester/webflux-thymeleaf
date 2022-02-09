@@ -1,21 +1,18 @@
 package com.mytests.spring.reactive.webfluxthymeleaf.controllers;
 
-import com.mytests.spring.reactive.webfluxthymeleaf.data.Person;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.server.*;
-import reactor.core.publisher.Mono;
+import org.springframework.web.reactive.function.server.RequestPredicate;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.RouterFunctions;
+import org.springframework.web.reactive.function.server.ServerResponse;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
+import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.path;
 import static org.springframework.web.reactive.function.server.RouterFunctions.nest;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 
 @Configuration
@@ -74,7 +71,7 @@ public class ReactiveControllerWithNested {
     @Bean
     public RouterFunction<ServerResponse> routeComplexNested(){
 
-
+        // https://youtrack.jetbrains.com/issue/IDEA-235010
         RequestPredicate predicate1 = GET("/aaa").or(GET("/bbb"));
         RequestPredicate predicate2 = GET("/ccc").or(GET("/ddd"));
         RequestPredicate predicate3 = GET("/eee").or(GET("/fff"));
@@ -91,6 +88,7 @@ public class ReactiveControllerWithNested {
                         ));
     }
 
+    // https://youtrack.jetbrains.com/issue/IDEA-235010
     @Bean
     public RouterFunction<ServerResponse> routeSimpleNestedWithVars(){
         final RequestPredicate predicate1 = GET("/foo");
